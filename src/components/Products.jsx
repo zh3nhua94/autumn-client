@@ -22,7 +22,7 @@ const Products = ({ cat, filters, sort }) => {
 		const getProducts = async () => {
 			try {
 				const res = await axios.get(
-					cat ? `http://localhost:8800/api/products?category=${cat}` : "http://localhost:8800/api/products"
+					cat ? import.meta.env.VITE_API_URL + `/products?category=${cat}` : import.meta.env.VITE_API_URL + "/products"
 				);
 				setProducts(res.data);
 			} catch (err) {
